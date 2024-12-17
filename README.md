@@ -715,7 +715,7 @@ We will once again re-iterate that the YOLO series of models were originally int
 **In addtion to this - This conclusion is based purely off metrics and although YOLOv5m comes in as a close second its worthwhile to consider that it has considerably more layers and also uses anchor boxes which YOLOv8m does not need -- hence improving perfomance. In that sense we would conclude that YOLOv8m is an outright winner when it comes to single image processing for the models that we examined.**
 
 
-# The Fun Part (RUN IT YOURSELF)
+# The Fun Part (RUN IT YOURSELF) *only compatible with Windows
 
 We have included an inference tool with a fully functioning easy to use GUI which you can simply select a model and run inference. We recommend you use snipping tool to select a region in satellite mode in google maps.
 Take some images and follow the tutorial to get started.
