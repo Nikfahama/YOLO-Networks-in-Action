@@ -670,7 +670,7 @@ yolo task=detect mode=train model=yolov<5/8 (your preference)><n/m (your prefere
    - *v5n* shows the lowest performance with a peak F1 of *0.72*.
 
 2. *Confidence Thresholds*:
-   - *v5m* peaks at *0.409, while **v8m* peaks at a *lower threshold* of *0.347*.
+   - *v5m* peaks at *0.409*, while *v8m* peaks at a *lower threshold* of *0.347*.
    - *v8n* achieves its best F1 score at a higher confidence threshold of *0.449*.
 
 3. *Overall Trends*:
