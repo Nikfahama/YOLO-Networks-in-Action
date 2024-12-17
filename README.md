@@ -9,7 +9,7 @@ The YOLO series relies on several generations / implementations of different arc
 for real time applications, however for the scope of our project we will focus strictly on single frame performance and testing. We have included a snippet of output from running inference of a YOLOv8m
 model we retrained as to provide an example of what the model is capable of doing. In this specific example the model found one plane with a confidence of 90%.
 
-*its important to mention that when we retrain the model, if we dont provide examples of all of the other classes the model (pretrained weights) were already trained on then the model will "forget" it. So essentially what we are doing here is replacing the classes the model was already trained on with our own ones.*
+*its important to mention that when we retrain the model, if we dont provide examples of all of the other classes the model (pretrained weights) was already trained on, then the model will "forget" it. So essentially what we are doing here is replacing the classes the model was already trained on with our own ones.*
 
 <img src="images/example_YOLOv8m.jpg" alt="Testing" width="500" />  
   
