@@ -260,7 +260,7 @@ As a summary the dataset structure looks like:
     - data.yaml  
 
   
-Where the iamges / labels pairs are simply an image with coordinates to a bounding box and a respective class of object within that bounding box.  
+Where the images / labels pairs are simply an image with coordinates to a bounding box and a respective class of object within that bounding box.  
 The classes that are included in the dataset (we decided to train on all 15 of them) are:  
 
 - baseball-diamond
@@ -303,7 +303,7 @@ Data preparation and metrics notebook can be found [here](data_prep_and_statisti
 
 </details>
 
-## Validation (2011)
+## Validation (2011 images)
 
 <details>
     <summary> 📊 Click to view graphs</summary>
