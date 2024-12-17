@@ -35,7 +35,21 @@ The variants of YOLO that we will be retraining are:
 | **YOLO-L**   | Large      | Slower        | High Accuracy  |
 | **YOLO-X**   | Extra Large| Slowest       | Highest Accuracy|
   
-**There are architectural differences between YOLOv5 and YOLOv8**  
+### There are architectural differences between YOLOv5 and YOLOv8  
+The main differences between YOLOv5 and YOLOv8 boil down to the use of a concept called an "anchor box".
+
+**Anchor Box (Simplified Definition)**
+  
+*An anchor box is a predefined bounding box of specific size and shape placed on a feature map grid cell. It serves as a reference for the model to predict the final object bounding box by adjusting its position, size, and shape.*
+
+| **Aspect**             | **Anchor-Based Detection** (YOLOv5)         | **Anchor-Free Detection** (YOLOv8)          |
+|------------------------|-------------------------------------|------------------------------------|
+| **Bounding Box**       | Predicted as offsets to predefined anchor boxes. | Directly predicts the bounding box center, size, and coordinates. |
+| **Anchors**            | Uses predefined anchor boxes at each grid cell. | Does not use anchor boxes.         |
+| **Scalability**        | Requires manually tuning anchor sizes and aspect ratios. | Simpler and less manual design.    |
+| **Computation**        | Slightly more complex due to anchor generation. | Faster and more efficient.         |
+| **Flexibility**        | Works well for objects of different scales/aspect ratios. | Better for detecting small and irregular objects. |
+
 
 ## Below is a summary of the architectures of the YOLO variants we selected to examine:  
 
@@ -45,7 +59,7 @@ The variants of YOLO that we will be retraining are:
 
 ### YOLOv5n
 <details>
-    <summary>Click to view model architecture</summary>
+    <summary> 🟡 Click to view model architecture</summary>
 
 | **Index** | **From** | **#** | **Params** | **Module**                              | **Arguments**                  |
 |-----------|----------|-------|------------|----------------------------------------|--------------------------------|
@@ -88,7 +102,7 @@ The variants of YOLO that we will be retraining are:
 ### YOLOv5m
 
 <details>
-    <summary>Click to view model architecture</summary>
+    <summary> 🟡 Click to view model architecture</summary>
 
 | **Index** | **From**         | **n** | **Params**  | **Module**                                  | **Arguments**                      |
 |-----------|------------------|-------|-------------|--------------------------------------------|-----------------------------------|
@@ -127,4 +141,105 @@ The variants of YOLO that we will be retraining are:
 </div>
 
 </div>
+
+  
+<div style="display: flex; gap: 20px;">
+
+<div>
+
+### YOLOv8n
+<details>
+    <summary> 🟡 Click to view model architecture</summary>
+    
+| **Index** | **From**    | **N** | **Parameters** | **Module**                                     | **Arguments**              |
+|-----------|-------------|-------|----------------|-----------------------------------------------|----------------------------|
+| 0         | -1          | 1     | 464            | ultralytics.nn.modules.conv.Conv               | [3, 16, 3, 2]              |
+| 1         | -1          | 1     | 4672           | ultralytics.nn.modules.conv.Conv               | [16, 32, 3, 2]             |
+| 2         | -1          | 1     | 7360           | ultralytics.nn.modules.block.C2f               | [32, 32, 1, True]          |
+| 3         | -1          | 1     | 18560          | ultralytics.nn.modules.conv.Conv               | [32, 64, 3, 2]             |
+| 4         | -1          | 2     | 49664          | ultralytics.nn.modules.block.C2f               | [64, 64, 2, True]          |
+| 5         | -1          | 1     | 73984          | ultralytics.nn.modules.conv.Conv               | [64, 128, 3, 2]            |
+| 6         | -1          | 2     | 197632         | ultralytics.nn.modules.block.C2f               | [128, 128, 2, True]        |
+| 7         | -1          | 1     | 295424         | ultralytics.nn.modules.conv.Conv               | [128, 256, 3, 2]           |
+| 8         | -1          | 1     | 460288         | ultralytics.nn.modules.block.C2f               | [256, 256, 1, True]        |
+| 9         | -1          | 1     | 164608         | ultralytics.nn.modules.block.SPPF              | [256, 256, 5]              |
+| 10        | -1          | 1     | 0              | torch.nn.modules.upsampling.Upsample           | [None, 2, 'nearest']       |
+| 11        | [-1, 6]     | 1     | 0              | ultralytics.nn.modules.conv.Concat             | [1]                        |
+| 12        | -1          | 1     | 148224         | ultralytics.nn.modules.block.C2f               | [384, 128, 1]              |
+| 13        | -1          | 1     | 0              | torch.nn.modules.upsampling.Upsample           | [None, 2, 'nearest']       |
+| 14        | [-1, 4]     | 1     | 0              | ultralytics.nn.modules.conv.Concat             | [1]                        |
+| 15        | -1          | 1     | 37248          | ultralytics.nn.modules.block.C2f               | [192, 64, 1]               |
+| 16        | -1          | 1     | 36992          | ultralytics.nn.modules.conv.Conv               | [64, 64, 3, 2]             |
+| 17        | [-1, 12]    | 1     | 0              | ultralytics.nn.modules.conv.Concat             | [1]                        |
+| 18        | -1          | 1     | 123648         | ultralytics.nn.modules.block.C2f               | [192, 128, 1]              |
+| 19        | -1          | 1     | 147712         | ultralytics.nn.modules.conv.Conv               | [128, 128, 3, 2]           |
+| 20        | [-1, 9]     | 1     | 0              | ultralytics.nn.modules.conv.Concat             | [1]                        |
+| 21        | -1          | 1     | 493056         | ultralytics.nn.modules.block.C2f               | [384, 256, 1]              |
+| 22        | [15, 18, 21]| 1     | 754237         | ultralytics.nn.modules.head.Detect             | [15, [64, 128, 256]]       |
+
+</details>
+
+### Key Points:
+
+- **Total Layers:** 225  
+- **Total Trainable Parameters:** 3.01M  
+ 
+
+</div>
+
+<div>
+
+### YOLOv8m
+
+<details>
+    <summary> 🟡 Click to view model architecture</summary>
+
+| **Index** | **From** | **Number** | **Parameters** | **Module**                                              | **Arguments**                          |
+|-----------|----------|------------|----------------|--------------------------------------------------------|----------------------------------------|
+| 0         | -1       | 1          | 1392           | `ultralytics.nn.modules.conv.Conv`                     | [3, 48, 3, 2]                          |
+| 1         | -1       | 1          | 41664          | `ultralytics.nn.modules.conv.Conv`                     | [48, 96, 3, 2]                         |
+| 2         | -1       | 2          | 111360         | `ultralytics.nn.modules.block.C2f`                     | [96, 96, 2, True]                      |
+| 3         | -1       | 1          | 166272         | `ultralytics.nn.modules.conv.Conv`                     | [96, 192, 3, 2]                        |
+| 4         | -1       | 4          | 813312         | `ultralytics.nn.modules.block.C2f`                     | [192, 192, 4, True]                    |
+| 5         | -1       | 1          | 664320         | `ultralytics.nn.modules.conv.Conv`                     | [192, 384, 3, 2]                       |
+| 6         | -1       | 4          | 3248640        | `ultralytics.nn.modules.block.C2f`                     | [384, 384, 4, True]                    |
+| 7         | -1       | 1          | 1991808        | `ultralytics.nn.modules.conv.Conv`                     | [384, 576, 3, 2]                       |
+| 8         | -1       | 2          | 3985920        | `ultralytics.nn.modules.block.C2f`                     | [576, 576, 2, True]                    |
+| 9         | -1       | 1          | 831168         | `ultralytics.nn.modules.block.SPPF`                    | [576, 576, 5]                          |
+| 10        | -1       | 1          | 0              | `torch.nn.modules.upsampling.Upsample`                 | [None, 2, 'nearest']                   |
+| 11        | [-1, 6]  | 1          | 0              | `ultralytics.nn.modules.conv.Concat`                   | [1]                                    |
+| 12        | -1       | 2          | 1993728        | `ultralytics.nn.modules.block.C2f`                     | [960, 384, 2]                          |
+| 13        | -1       | 1          | 0              | `torch.nn.modules.upsampling.Upsample`                 | [None, 2, 'nearest']                   |
+| 14        | [-1, 4]  | 1          | 0              | `ultralytics.nn.modules.conv.Concat`                   | [1]                                    |
+| 15        | -1       | 2          | 517632         | `ultralytics.nn.modules.block.C2f`                     | [576, 192, 2]                          |
+| 16        | -1       | 1          | 332160         | `ultralytics.nn.modules.conv.Conv`                     | [192, 192, 3, 2]                       |
+| 17        | [-1, 12] | 1          | 0              | `ultralytics.nn.modules.conv.Concat`                   | [1]                                    |
+| 18        | -1       | 2          | 1846272        | `ultralytics.nn.modules.block.C2f`                     | [576, 384, 2]                          |
+| 19        | -1       | 1          | 1327872        | `ultralytics.nn.modules.conv.Conv`                     | [384, 384, 3, 2]                       |
+| 20        | [-1, 9]  | 1          | 0              | `ultralytics.nn.modules.conv.Concat`                   | [1]                                    |
+| 21        | -1       | 2          | 4207104        | `ultralytics.nn.modules.block.C2f`                     | [960, 576, 2]                          |
+| 22        | [15, 18, 21] | 1       | 3784381        | `ultralytics.nn.modules.head.Detect`                   | [15, [192, 384, 576]]                  |
+
+
+</details>
+
+### Key Points:
+
+- **Total Layers**: 295  
+- **Total Trainable Parameters**: 25.9M  
+ 
+
+</div>
+
+</div>
+
+
+  
+  
+From the architectural & technical summaries above we can see that there are major differences between the genereations and variants of the models. As such we decided to take samples
+from two of the most popular gnerations of YOLO (v5 and v8) as well as two of the lighter variants (N and M) while placing an emphasis that we take at least some spacing between the variants
+as to avoid sampling ones which might be too close to see dramatic results (such as N and S).
+
+We would also like to re-iterate that we were working under time and hardware constraints. Specifically when it comes to hardware all of the training that took place was done with a 
+Laptop RTX-4070 with 8GB of VRAM.
 
