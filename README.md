@@ -717,7 +717,7 @@ We will once again re-iterate that the YOLO series of models were originally int
 
 # The Fun Part (RUN IT YOURSELF)
 
-We have included an inference tool with a fully functioning easy to use GUI which you can simply select a model and run inference. We reconnmend you use snipping tool to select a region in satellite mode in google maps.
+We have included an inference tool with a fully functioning easy to use GUI which you can simply select a model and run inference. We recommend you use snipping tool to select a region in satellite mode in google maps.
 Take some images and follow the tutorial to get started.
 
 ### Prerequisites
