@@ -301,7 +301,7 @@ Data preparation and metrics notebook can be found [here](data_prep_and_statisti
 <img src="images/train_heatmap_class_co_occurence.png" alt="Co-occurence" width="600"/>  
 
 ### Bounding Box size Distribution (Train)
-<img src="images/train_bbox_distribution.png" alt="Bbox size distribution" width="600"/>  
+<img src="images/train_bbox_distribution.jpg" alt="Bbox size distribution" width="600"/>  
 
 </details>
 
