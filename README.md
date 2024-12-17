@@ -571,7 +571,7 @@ yolo task=detect mode=train model=yolov<5/8 (your preference)><n/m (your prefere
 ---
 
 ### **1. Training Loss Plot**
-<img src="images/training_section/yolov8m_training_loss.png" alt="8m" width="600"/>
+<img src="images/training_section/yolov8m_training_loss_graph.png" alt="8m" width="600"/>
 
 **Explanation**:
 - **Train Box Loss**: Loss for bounding box localization steadily decreases, showing the model's improvement in predicting object positions.
