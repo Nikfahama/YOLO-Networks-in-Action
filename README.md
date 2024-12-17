@@ -656,10 +656,10 @@ yolo task=detect mode=train model=yolov<5/8 (your preference)><n/m (your prefere
 
 | *Curve*             | *Max F1 Score* | *Confidence Threshold* | *Observation*                                             |
 |------------------------|------------------|--------------------------|------------------------------------------------------------|
-| *1. F1_curve_v5m*    | *0.81*         | *0.409*                | Highest F1 score across all classes with confidence ~0.4.  |
-| *2. F1_curve_v5n*    | *0.72*         | *0.421*                | Lower peak F1 score; similar threshold as v5m.            |
-| *3. F1_curve_v8m*    | *0.81*         | *0.347*                | High F1 score achieved but at a lower threshold.           |
-| *4. F1_curve_v8n*    | *0.75*         | *0.449*                | Moderate F1 score; threshold ~0.45 (higher than v8m).      |
+| *F1_curve_v5m*    | *0.81*         | *0.409*                | Highest F1 score across all classes with confidence ~0.4.  |
+| *F1_curve_v5n*    | *0.72*         | *0.421*                | Lower peak F1 score; similar threshold as v5m.            |
+| *F1_curve_v8m*    | *0.81*         | *0.347*                | High F1 score achieved but at a lower threshold.           |
+| *F1_curve_v8n*    | *0.75*         | *0.449*                | Moderate F1 score; threshold ~0.45 (higher than v8m).      |
 
 ---
 
