@@ -352,19 +352,20 @@ yolo task=detect mode=train model=yolov<5/8 (your preference)><n/m (your prefere
 ---
 
 ## YOLOv5n Final Metrics Summary (Epoch 50)
-| Metric             | Value      |
-|--------------------|------------|
-| **Epoch**          | 50    |
-| **Train Box Loss** | 0.92823 |
-| **Train Class Loss** | 0.52120 |
-| **Train DFL Loss** | 0.92048 |
-| **Validation Box Loss** | 1.11600 |
-| **Validation Class Loss** | 0.69903 |
-| **Validation DFL Loss** | 0.99964 |
-| **Precision**      | 0.84976 |
-| **Recall**         | 0.78668 |
-| **mAP@0.5**        | 0.83693 |
-| **mAP@0.5:0.95**   | 0.59779 |
+| Metric               | Value      |
+|----------------------|------------|
+| **Epoch**            | 50         |
+| **Train Box Loss**   | 1.6068     |
+| **Train Class Loss** | 1.5051     |
+| **Train DFL Loss**   | 1.1508     |
+| **Validation Box Loss** | 1.6220  |
+| **Validation Class Loss** | 1.6558 |
+| **Validation DFL Loss** | 1.1947  |
+| **Precision**        | 0.55070    |
+| **Recall**           | 0.46399    |
+| **mAP@0.5**          | 0.46858    |
+| **mAP@0.5:0.95**     | 0.28478    |
+
 
 ---
 
