@@ -712,7 +712,7 @@ From the *final epoch metrics* and *F1-confidence curves*:
 
 We will once again re-iterate that the YOLO series of models were originally intended for real time object detection, that being said keep in mind that YOLOv8m is considerable heavier to run at a decent framerate when it comes to real time detection.
 
-**In addtion to this - This conclusion is based purely off metrics and although YOLOv5m comes in as a close second its worthwhile to consider that it has considerably more layers and also uses anchor boxes which YOLOv8m does not need -- hence improving perfomance. In that sense we would conclude that YOLOv8n is an outright winner when it comes to single image processing for the mdoels that we examined.**
+**In addtion to this - This conclusion is based purely off metrics and although YOLOv5m comes in as a close second its worthwhile to consider that it has considerably more layers and also uses anchor boxes which YOLOv8m does not need -- hence improving perfomance. In that sense we would conclude that YOLOv8m is an outright winner when it comes to single image processing for the mdoels that we examined.**
 
 
 # The Fun Part (RUN IT YOURSELF)
