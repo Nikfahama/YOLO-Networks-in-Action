@@ -675,7 +675,7 @@ yolo task=detect mode=train model=yolov<5/8 (your preference)><n/m (your prefere
 
 3. *Overall Trends*:
    - The *v5m* and *v8m* curves exhibit smooth progressions and higher performance overall.
-   - The *v5n* and *v8n* curves show a *dip in F1 scores, indicating **weaker predictions* compared to their counterparts.
+   - The *v5n* and *v8n* curves show a dip in F1 scores, indicating *weaker predictions* compared to their counterparts.
 
 ---
 
