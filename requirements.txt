@@ -1,0 +1,5 @@
+customtkinter
+pillow
+ultralytics
+opencv-python-headless
+numpy
