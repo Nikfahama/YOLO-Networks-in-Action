@@ -713,3 +713,38 @@ From the *final epoch metrics* and *F1-confidence curves*:
 We will once again re-iterate that the YOLO series of models were originally intended for real time object detection, that being said keep in mind that YOLOv8m is considerable heavier to run at a decent framerate when it comes to real time detection.
 
 **In addtion to this - This conclusion is based purely off metrics and although YOLOv5m comes in as a close second its worthwhile to consider that it has considerably more layers and also uses anchor boxes which YOLOv8m does not need -- hence improving perfomance. In that sense we would conclude that YOLOv8n is an outright winner when it comes to single image processing for the mdoels that we examined.**
+
+
+# The Fun Part (RUN IT YOURSELF)
+
+We have included an inference tool with a fully functioning easy to use GUI which you can simply select a model and run inference. We reconnmend you use snipping tool to select a region in satellite mode in google maps.
+Take some images and follow the tutorial to get started.
+
+### Prerequisites
+
+Ensure you have **Python 3.8+** installed on your system. You can check your Python version by running:
+
+```bash
+python --version
+```
+
+```bash
+git clone https://github.com/Nikfahama/YOLO-Networks-in-Action
+cd <repository-folder>
+```  
+  
+
+its always recommended to install dependencies in a venv but this is totally optional.
+
+run:  
+```bash
+pip install -r requirements.txt
+```
+
+then simply run:  
+```bash
+python infer.py
+```
+The GUI is intuitive and simple to use, simply upload an image, select a model and click "Run Inference". The results are pretty amazing to see. You may also save the image later if you desire.  
+
+That will do it for our final project :)
