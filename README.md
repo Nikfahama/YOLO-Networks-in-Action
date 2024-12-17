@@ -44,6 +44,8 @@ The variants of YOLO that we will be retraining are:
 <div>
 
 ### YOLOv5n
+<details>
+    <summary>Click to view model architecture</summary>
 
 | **Index** | **From** | **#** | **Params** | **Module**                              | **Arguments**                  |
 |-----------|----------|-------|------------|----------------------------------------|--------------------------------|
@@ -72,7 +74,7 @@ The variants of YOLO that we will be retraining are:
 | 22        | [-1, 10] | 1     | 0          | ultralytics.nn.modules.conv.Concat     | [1]                            |
 | 23        | -1       | 1     | 296,448    | ultralytics.nn.modules.block.C3        | [256, 256, 1, False]           |
 | 24        | [17, 20, 23] | 1 | 754,237    | ultralytics.nn.modules.head.Detect     | [15, [64, 128, 256]]           |
-
+</details>
 
 ### Key Points:
 
@@ -84,6 +86,9 @@ The variants of YOLO that we will be retraining are:
 <div>
 
 ### YOLOv5m
+
+<details>
+    <summary>Click to view model architecture</summary>
 
 | **Index** | **From**         | **n** | **Params**  | **Module**                                  | **Arguments**                      |
 |-----------|------------------|-------|-------------|--------------------------------------------|-----------------------------------|
@@ -112,7 +117,7 @@ The variants of YOLO that we will be retraining are:
 | 22        | [-1, 10]         | 1     | 0           | ultralytics.nn.modules.conv.Concat          | [1]                               |
 | 23        | -1               | 2     | 4134912     | ultralytics.nn.modules.block.C3             | [768, 768, 2, False]              |
 | 24        | [17, 20, 23]     | 1     | 4226749     | ultralytics.nn.modules.head.Detect          | [15, [192, 384, 768]]             |
-
+</details>
 
 ### Key Points:
 
@@ -122,3 +127,4 @@ The variants of YOLO that we will be retraining are:
 </div>
 
 </div>
+
