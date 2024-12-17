@@ -9,6 +9,8 @@ The YOLO series relies on several gnerations / implementations of different arch
 for real time applications, however for the scope of our project we will focus strictly on single frame performance and testing. We have included a snippet of output from running inference of a YOLOv8m
 model we retrained as to provide an example of what the model is capable of doing. In this specific example the model found one plane with a confidence of 90%.
 
+*its important to mention that when we retrain the model, if we dont provide examples of all of the other classes the model (pretrained weights) were already trained on then the model will "forget" it. So essentially what we are doing here is replacing the classes the model was already trained on with our own ones.*
+
 <img src="images/example_YOLOv8m.jpg" alt="Testing" width="500" />  
   
 ### Now for the outline of our project  
@@ -336,6 +338,358 @@ yolo task=detect mode=train model=yolov<5/8 (your preference)><n/m (your prefere
 - YOLO works best on 640x640 images
 - Batch size greater than 8 took up too much VRAM for our hardware (RTX 4070 Laptop) and would crash the training  
 
-## YOLOv8m
+**Another note:** In the model evaluation the term DFL loss will come up quite frequently. To save having to dig through definitions we provided one here:
+**DFL Loss (Distribution Focal Loss):**
+*DFL Loss reflects how far off the predicted probability distribution of bounding box locations is from the target distribution (ground truth).*
+*It measures the difference between the predicted coordinates (represented as a probability distribution) and the true position of an object in the image.*
 
 
+## YOLOv5n Training Results
+
+<details>
+    <summary>📈 Click to see results</summary>
+
+---
+
+## YOLOv5n Final Metrics Summary (Epoch 50)
+| Metric             | Value      |
+|--------------------|------------|
+| **Epoch**          | 50    |
+| **Train Box Loss** | 0.92823 |
+| **Train Class Loss** | 0.52120 |
+| **Train DFL Loss** | 0.92048 |
+| **Validation Box Loss** | 1.11600 |
+| **Validation Class Loss** | 0.69903 |
+| **Validation DFL Loss** | 0.99964 |
+| **Precision**      | 0.84976 |
+| **Recall**         | 0.78668 |
+| **mAP@0.5**        | 0.83693 |
+| **mAP@0.5:0.95**   | 0.59779 |
+
+---
+
+## Training Loss Over Epochs
+### YOLOv5n Training Loss Plot
+<img src="images/training_section/5nLOE.jpg" alt="5n" width="600"/>  
+
+**Explanation:**
+- The **Box Loss**, **Class Loss**, and **DFL Loss** decrease steadily over epochs, indicating effective training.
+
+---
+
+## Validation Loss Over Epochs
+### YOLOv5n Validation Loss Plot
+
+<img src="images/training_section/5nVOE.jpg" alt="5n" width="600"/> 
+
+**Explanation:**
+- Validation losses stabilize at higher values, suggesting that the model has lower generalization performance compared to larger versions like YOLOv5m.
+
+---
+
+## Validation Metrics Over Epochs
+### YOLOv5n Validation Metrics Plot
+<img src="images/training_section/5nVMOE.jpg" alt="5n" width="600"/> 
+
+**Explanation:**
+- Precision, Recall, and mAP values improve over epochs but remain lower than those of larger models.
+
+---
+</details>
+
+
+
+## YOLOv5m Training Results
+
+<details>
+    <summary>📈 Click to see results</summary>
+
+
+---
+
+## Final Metrics Summary (Epoch 50)
+| Metric             | Value      |
+|--------------------|------------|
+| **Epoch**          | 50         |
+| **Train Box Loss** | 0.92823    |
+| **Train Class Loss** | 0.5212   |
+| **Train DFL Loss** | 0.92048    |
+| **Validation Box Loss** | 1.116 |
+| **Validation Class Loss** | 0.69903 |
+| **Validation DFL Loss** | 0.99964 |
+| **Precision**      | 0.84976    |
+| **Recall**         | 0.78668    |
+| **mAP@0.5**        | 0.83693    |
+| **mAP@0.5:0.95**   | 0.59779    |
+
+---
+
+## Training Loss Over Epochs
+- **Box Loss**, **Class Loss**, and **DFL Loss** decrease consistently over time, showing effective convergence during training.
+
+### Training Loss Plot
+<img src="images/training_section/training_loss_yolov5m.png" alt="5m" width="600"/> 
+
+**Explanation:**
+- The training loss measures how well the model learns during training.
+- **Box Loss**: Measures the error in predicting the bounding box locations.
+- **Class Loss**: Measures the error in classifying the detected objects.
+- **DFL Loss**: Refers to the distribution focal loss, which optimizes localization precision.
+- The consistent decrease in these losses indicates that the model is learning effectively over the epochs.
+
+---
+
+## Validation Loss Over Epochs
+- Validation losses for box, class, and DFL decrease similarly, reflecting good generalization to unseen data.
+
+### Validation Loss Plot
+<img src="images/training_section/validation_loss_yolov5m.png" alt="5m" width="600"/> 
+
+**Explanation:**
+- Validation loss evaluates the model's performance on unseen data.
+- Lower validation losses suggest that the model generalizes well.
+- The steady reduction in **Box Loss**, **Class Loss**, and **DFL Loss** indicates minimal overfitting, as the losses align closely with the training losses.
+
+---
+
+## Validation Metrics Over Epochs
+- **Precision** and **Recall** steadily increase, stabilizing at higher values in later epochs.
+- **mAP@0.5** and **mAP@0.5:0.95** demonstrate consistent improvement.
+
+### Validation Metrics Plot
+<img src="images/training_section/validation_metrics_yolov5m.png" alt="5m" width="600"/> 
+
+**Explanation:**
+- **Precision**: Measures how many of the predicted objects are correct.
+- **Recall**: Measures how many of the ground-truth objects are detected.
+- **mAP@0.5**: Mean Average Precision at IoU threshold of 0.5. This measures detection accuracy at a single threshold.
+- **mAP@0.5:0.95**: Average precision across multiple IoU thresholds (0.5 to 0.95). This is a stricter and more comprehensive metric.
+- The increase in these metrics over epochs reflects that the model improves its accuracy and detection performance.
+
+---
+
+</details>
+
+
+## YOLOv8n Training Results
+
+<details>
+    <summary>📈 Click to see results</summary>
+
+---
+
+## YOLOv8n Final Metrics Summary (Epoch 50)
+| Metric             | Value      |
+|--------------------|------------|
+| **Epoch**          | 50    |
+| **Train Box Loss** | 1.15010 |
+| **Train Class Loss** | 0.74757 |
+| **Train DFL Loss** | 0.97400 |
+| **Validation Box Loss** | 1.28800 |
+| **Validation Class Loss** | 0.91859 |
+| **Validation DFL Loss** | 1.03100 |
+| **Precision**      | 0.80710 |
+| **Recall**         | 0.71055 |
+| **mAP@0.5**        | 0.75985 |
+| **mAP@0.5:0.95**   | 0.51454 |
+
+---
+
+## Training Loss Over Epochs
+### YOLOv8n Training Loss Plot
+<img src="images/training_section/yolov8n_training_loss.png" alt="8n" width="600"/>  
+
+
+**Explanation**:
+- **Train Box Loss**: Steadily decreases as the model improves in predicting object bounding boxes.
+- **Train Class Loss**: The model gradually becomes better at classifying objects.
+- **Train DFL Loss**: Confidence in predictions increases as this loss decreases.
+
+---
+
+## Validation Loss Over Epochs
+### YOLOv8n Validation Loss Plot
+<img src="images/training_section/yolov8n_validation_loss.png" alt="8n" width="600"/>  
+
+**Explanation**:
+- **Val Box Loss**: Tracks errors in predicting bounding boxes on unseen data.
+- **Val Class Loss**: Decreases as classification accuracy improves.
+- **Val DFL Loss**: Measures prediction confidence during validation.
+
+**Key Insight**:
+- Validation losses decrease and stabilize, showing improved generalization.
+
+---
+
+## Validation Metrics Over Epochs
+### YOLOv8n Validation Metrics Plot
+<img src="images/training_section/yolov8n_validation_metrics.png" alt="8n" width="600"/>  
+
+
+**Explanation**:
+- **Precision**: Indicates fewer false positives in predictions.
+- **Recall**: Reflects the model's ability to detect all objects.
+- **mAP@0.5**: Accuracy at IoU=0.5 steadily increases, showing improved performance.
+- **mAP@0.5:0.95**: Measures robustness at varying IoU thresholds.
+
+**Key Insight**:
+- Precision, Recall, and mAP values increase steadily, demonstrating effective learning.
+
+---
+
+</details>
+
+## YOLOv8m Training Results
+
+<details>
+    <summary>📈 Click to see results</summary>
+
+
+---
+
+## YOLOv8m Final Metrics Summary (Epoch 50)
+| Metric             | Value      |
+|--------------------|------------|
+| **Epoch**          | 50    |
+| **Train Box Loss** | 0.88608 |
+| **Train Class Loss** | 0.48225 |
+| **Train DFL Loss** | 0.92013 |
+| **Validation Box Loss** | 1.09110 |
+| **Validation Class Loss** | 0.66427 |
+| **Validation DFL Loss** | 1.01660 |
+| **Precision**      | 0.84006 |
+| **Recall**         | 0.79242 |
+| **mAP@0.5**        | 0.83794 |
+| **mAP@0.5:0.95**   | 0.60794 |
+
+---
+
+
+## Key Observations
+1. YOLOv8m shows consistent improvement across all metrics over the epochs.
+2. The model achieves stable losses and high mAP scores.
+
+---
+
+### **1. Training Loss Plot**
+<img src="images/training_section/yolov8m_training_loss.png" alt="8m" width="600"/>
+
+**Explanation**:
+- **Train Box Loss**: Loss for bounding box localization steadily decreases, showing the model's improvement in predicting object positions.
+- **Train Class Loss**: Classification loss decreases as the model learns to predict classes more accurately.
+- **Train DFL Loss**: Confidence in predictions improves as this loss decreases.
+
+**Key Insight**: A consistent downward trend across all losses indicates effective training.
+
+---
+
+### **2. Validation Loss Plot**
+<img src="images/training_section/yolov8m_validation_loss.png" alt="8m" width="600"/>
+
+
+**Explanation**:
+- **Val Box Loss**: Measures bounding box prediction errors on unseen validation data.
+- **Val Class Loss**: Tracks classification errors during validation.
+- **Val DFL Loss**: Indicates confidence in predictions.
+
+**Key Insight**:
+- The decreasing and stabilizing validation losses confirm the model's generalization without overfitting.
+
+---
+
+### **3. Validation Metrics Plot**
+<img src="images/training_section/yolov8m_validation_metrics.png" alt="8m" width="600"/>
+
+**Explanation**:
+- **Precision**: Indicates fewer false positives (high accuracy in predictions).
+- **Recall**: Measures the ability to detect all objects (fewer false negatives).
+- **mAP@0.5**: High mean Average Precision at IoU=0.5 reflects strong detection accuracy.
+- **mAP@0.5:0.95**: Comprehensive metric averaging IoUs from 0.5 to 0.95 shows robustness.
+
+**Key Insight**:
+- The increasing Precision, Recall, and mAP values confirm the model's steady improvement and strong performance.
+
+---
+
+
+</details>
+
+# Model Comparison
+
+---
+
+## **F1-Confidence Curve Comparison**
+
+<details>
+    <summary>Click to see YOLOv5N F1 graph</summary>
+
+## YOLOv5n F1 graph
+<img src="yolov5n_new/F1_curve.png" alt="5n" width="600"/>
+
+</details>
+
+<details>
+    <summary>Click to see YOLOv5M F1 graph</summary>
+
+## YOLOv5m F1 graph
+<img src="yolov5m_new/F1_curve.png" alt="5n" width="600"/>
+
+</details>
+
+<details>
+    <summary>Click to see YOLOv8N F1 graph</summary>
+
+## YOLOv8n F1 graph
+<img src="yolov8n_new/F1_curve.png" alt="5n" width="600"/>
+
+</details>
+
+<details>
+    <summary>Click to see YOLOv8M F1 graph</summary>
+
+## YOLOv8m F1 graph
+<img src="yolov8m_new/F1_curve.png" alt="5n" width="600"/>
+
+</details>
+
+## **Comparison Summary**
+
+| *Curve*             | *Max F1 Score* | *Confidence Threshold* | *Observation*                                             |
+|------------------------|------------------|--------------------------|------------------------------------------------------------|
+| *1. F1_curve_v5m*    | *0.81*         | *0.409*                | Highest F1 score across all classes with confidence ~0.4.  |
+| *2. F1_curve_v5n*    | *0.72*         | *0.421*                | Lower peak F1 score; similar threshold as v5m.            |
+| *3. F1_curve_v8m*    | *0.81*         | *0.347*                | High F1 score achieved but at a lower threshold.           |
+| *4. F1_curve_v8n*    | *0.75*         | *0.449*                | Moderate F1 score; threshold ~0.45 (higher than v8m).      |
+
+---
+
+## **Key Observations**
+
+1. *F1 Score Peaks*:
+   - *v5m* and *v8m* achieved the *highest F1 scores* of *0.81*.
+   - *v5n* shows the lowest performance with a peak F1 of *0.72*.
+
+2. *Confidence Thresholds*:
+   - *v5m* peaks at *0.409, while **v8m* peaks at a *lower threshold* of *0.347*.
+   - *v8n* achieves its best F1 score at a higher confidence threshold of *0.449*.
+
+3. *Overall Trends*:
+   - The *v5m* and *v8m* curves exhibit smooth progressions and higher performance overall.
+   - The *v5n* and *v8n* curves show a *dip in F1 scores, indicating **weaker predictions* compared to their counterparts.
+
+---
+
+## **Conclusion**
+
+- *Best Performing Models*:  
+   - *v5m* and *v8m* with peak F1 scores of *0.81*.  
+
+- *Optimal Confidence Threshold*:  
+   - Lower thresholds (~*0.347 to 0.409*) maximize F1 scores.  
+
+- *Weaker Performance*:  
+   - *v5n* with the lowest peak F1 score (*0.72*).  
+
+---
+
+This summary highlights that *v5m* and *v8m* outperform other curves, and adjusting the confidence threshold plays a significant role in achieving optimal performance.
