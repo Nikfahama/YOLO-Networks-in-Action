@@ -708,9 +708,9 @@ From the *final epoch metrics* and *F1-confidence curves*:
 
 ### *Final Conclusion*
 - If *performance* is the top priority, *YOLOv8m* is the *best model* overall.
-- For *efficiency* and lower computational cost, *YOLOv8n* is the better choice over YOLOv5n. Especially considering the fact that the nano models have considerably less tranable parameters with a much simpler network with less layers.
+- For *efficiency* and lower computational cost, *YOLOv8n* is the better choice over YOLOv5n. Especially considering the fact that the nano models have considerably less trainable parameters with a much simpler network with less layers.
 
-We will once again re-iterate that the YOLO series of models were originally intended for real time object detection, that being said keep in mind that YOLOv8m is considerable heavier to run at a decent framerate when it comes to real time detection.
+We will once again re-iterate that the YOLO series of models were originally intended for real time object detection, that being said keep in mind that YOLOv8m is considerably heavier to run at a decent framerate when it comes to real time detection.
 
 **In addtion to this - This conclusion is based purely off metrics and although YOLOv5m comes in as a close second its worthwhile to consider that it has considerably more layers and also uses anchor boxes which YOLOv8m does not need -- hence improving perfomance. In that sense we would conclude that YOLOv8m is an outright winner when it comes to single image processing for the models that we examined.**
 
