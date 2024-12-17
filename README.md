@@ -693,3 +693,21 @@ yolo task=detect mode=train model=yolov<5/8 (your preference)><n/m (your prefere
 ---
 
 This summary highlights that *v5m* and *v8m* outperform other curves, and adjusting the confidence threshold plays a significant role in achieving optimal performance.
+
+From the *final epoch metrics* and *F1-confidence curves*:
+- *YOLOv8m* emerges as the *best overall model*:
+  - Highest *precision* and *recall*.
+  - Best F1 score (*0.81) at a low confidence threshold (0.347*).
+  - Lower validation losses compared to YOLOv5m, indicating better generalization.
+- *YOLOv5m* is a close second:
+  - Similar F1 score (*0.81) but at a higher confidence threshold (0.409*).
+  - Slightly higher validation losses compared to YOLOv8m.
+- *YOLOv8n* outperforms YOLOv5n among the *"nano" models*, achieving better F1 scores and validation metrics.
+
+---
+
+### *Final Conclusion*
+- If *performance* is the top priority, *YOLOv8m* is the *best model* overall.
+- For *efficiency* and lower computational cost, *YOLOv8n* is the better choice over YOLOv5n. Especially considering the fact that the nano models have considerably less tranable parameters witha much simpler network with less layers.
+
+We will once again re-iterate that the YOLO series of models were originally intended for real time object detection, that being said keep in mind that YOLOv8m is considerable heavier to run at a decent framerate when it comes to real time detection.
