@@ -319,4 +319,23 @@ Data preparation and metrics notebook can be found [here](data_prep_and_statisti
 
 </details>
 
+# Training Summary  
+
+Now we have reached the model traning phase where we are to train the models we selected on our dataset of choice. Luckily for us, we wont have to write the model from scratch as ultralytics
+provides an elegant suite for us to use if we wish to retrain their YOLO models.  
+To get started we simply run these commands:  
+```bash
+pip install ultralytics
+```  
+And then run:  
+```bash
+yolo task=detect mode=train model=yolov<5/8 (your preference)><n/m (your preference)>.pt data=data.yaml epochs=50 imgsz=640 batch=8
+```  
+**Note** We chose these specific paramenters since:  
+- It was recommended by multiple sources to retrain any version of YOLO on at least 50 epochs
+- YOLO works best on 640x640 images
+- Batch size greater than 8 took up too much VRAM for our hardware (RTX 4070 Laptop) and would crash the training  
+
+## YOLOv8m
+
 
