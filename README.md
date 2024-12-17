@@ -355,17 +355,16 @@ yolo task=detect mode=train model=yolov<5/8 (your preference)><n/m (your prefere
 | Metric               | Value      |
 |----------------------|------------|
 | **Epoch**            | 50         |
-| **Train Box Loss**   | 1.6068     |
-| **Train Class Loss** | 1.5051     |
-| **Train DFL Loss**   | 1.1508     |
-| **Validation Box Loss** | 1.6220  |
-| **Validation Class Loss** | 1.6558 |
-| **Validation DFL Loss** | 1.1947  |
+| **Train Box Loss**   | 1.2083     |
+| **Train Class Loss** | 0.8173     |
+| **Train DFL Loss**   | 0.99163    |
+| **Validation Box Loss** | 1.3181  |
+| **Validation Class Loss** | 1.0012 |
+| **Validation DFL Loss** | 1.0369  |
 | **Precision**        | 0.78842    |
 | **Recall**           | 0.67590    |
 | **mAP@0.5**          | 0.73218    |
 | **mAP@0.5:0.95**     | 0.49329    |
-
 ---
 
 ## Training Loss Over Epochs
