@@ -361,11 +361,10 @@ yolo task=detect mode=train model=yolov<5/8 (your preference)><n/m (your prefere
 | **Validation Box Loss** | 1.6220  |
 | **Validation Class Loss** | 1.6558 |
 | **Validation DFL Loss** | 1.1947  |
-| **Precision**        | 0.55070    |
-| **Recall**           | 0.46399    |
-| **mAP@0.5**          | 0.46858    |
-| **mAP@0.5:0.95**     | 0.28478    |
-
+| **Precision**        | 0.78842    |
+| **Recall**           | 0.67590    |
+| **mAP@0.5**          | 0.73218    |
+| **mAP@0.5:0.95**     | 0.49329    |
 
 ---
 
