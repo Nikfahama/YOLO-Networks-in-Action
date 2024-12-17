@@ -59,7 +59,7 @@ The main differences between YOLOv5 and YOLOv8 boil down to the use of a concept
 
 ### YOLOv5n
 <details>
-    <summary> 🟡 Click to view model architecture</summary>
+    <summary> 🏗️ Click to view model architecture</summary>
 
 | **Index** | **From** | **#** | **Params** | **Module**                              | **Arguments**                  |
 |-----------|----------|-------|------------|----------------------------------------|--------------------------------|
@@ -102,7 +102,7 @@ The main differences between YOLOv5 and YOLOv8 boil down to the use of a concept
 ### YOLOv5m
 
 <details>
-    <summary> 🟡 Click to view model architecture</summary>
+    <summary> 🏗️ Click to view model architecture</summary>
 
 | **Index** | **From**         | **n** | **Params**  | **Module**                                  | **Arguments**                      |
 |-----------|------------------|-------|-------------|--------------------------------------------|-----------------------------------|
@@ -149,7 +149,7 @@ The main differences between YOLOv5 and YOLOv8 boil down to the use of a concept
 
 ### YOLOv8n
 <details>
-    <summary> 🟡 Click to view model architecture</summary>
+    <summary> 🏗️ Click to view model architecture</summary>
     
 | **Index** | **From**    | **N** | **Parameters** | **Module**                                     | **Arguments**              |
 |-----------|-------------|-------|----------------|-----------------------------------------------|----------------------------|
@@ -192,7 +192,7 @@ The main differences between YOLOv5 and YOLOv8 boil down to the use of a concept
 ### YOLOv8m
 
 <details>
-    <summary> 🟡 Click to view model architecture</summary>
+    <summary> 🏗️ Click to view model architecture</summary>
 
 | **Index** | **From** | **Number** | **Parameters** | **Module**                                              | **Arguments**                          |
 |-----------|----------|------------|----------------|--------------------------------------------------------|----------------------------------------|
@@ -242,4 +242,81 @@ as to avoid sampling ones which might be too close to see dramatic results (such
 
 We would also like to re-iterate that we were working under time and hardware constraints. Specifically when it comes to hardware all of the training that took place was done with a 
 Laptop RTX-4070 with 8GB of VRAM.
+
+## Data Preparation
+  
+
+To retrain our selected YOLO models we made use of the klk dataset which we found on roboflow.  
+The dataset can be found [here](https://universe.roboflow.com/kemal/klk-pwt7h).  
+As a summary the dataset structure looks like:  
+
+- Dataset
+    - train
+        - images
+        - labels
+    - valid
+        - images
+        - labels
+    - data.yaml  
+
+  
+Where the iamges / labels pairs are simply an image with coordinates to a bounding box and a respective class of object within that bounding box.  
+The classes that are included in the dataset (we decided to train on all 15 of them) are:  
+
+- baseball-diamond
+- basketball-court
+- bridge
+- ground-track-field
+- harbor
+- helicopter
+- large-vehicle
+- plane
+- roundabout
+- ship
+- small-vehicle
+- soccer-ball-field
+- storage-tank
+- swimming-pool
+- tennis-court  
+
+# Dataset Metrics - Training 70% / Validation 30%  
+  
+Data preparation and metrics notebook can be found [here](data_prep_and_statistics.ipynb).
+
+
+## Training (4693 images)
+
+<details>
+    <summary> 📊 Click to view graphs</summary>
+
+### Label distribution (Train) - Frequency of each label
+<img src="images/train_label_distribution.png" alt="Label Distribution" width="600"/>  
+
+### Class frequency (Train) - Amount of images that display 
+<img src="images/train_class_frequency.png" alt="Class frequency" width="600"/>  
+
+### Class co-occurence (Train)
+<img src="images/train_heatmap_class_co_occurence.png" alt="Co-occurence" width="600"/>  
+
+### Bounding Box size Distribution (Train)
+<img src="images/train_bbox_distribution.png" alt="Bbox size distribution" width="600"/>  
+
+</details>
+
+## Validation (2011)
+
+<details>
+    <summary> 📊 Click to view graphs</summary>
+
+### Label distribution (Validation) - Frequency of each label
+<img src="images/valid_graph_label_distribution.png" alt="Label Distribution" width="600"/>  
+
+### Class frequency (Validation) - Amount of images that display 
+<img src="images/valid_graph_class_frequency.png" alt="Class frequency" width="600"/>  
+
+### Class co-occurence (Validation)
+<img src="images/valid_heatmap_class_co_occurrence.png" alt="Co-occurence" width="600"/>  
+
+</details>
+
 
