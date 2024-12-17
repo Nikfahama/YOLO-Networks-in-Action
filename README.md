@@ -5,7 +5,7 @@
 In this project we will be exploring the process of retraining the some of the most popular state of the art computer vision models out there - more specifically, 
 multiple samples from the YOLO (You Only Look Once) family of architectures.  
   
-The YOLO series relies on several gnerations / implementations of different architectures to achieve object / bounding box detections on classes which they were trained on. YOLO was originally made
+The YOLO series relies on several generations / implementations of different architectures to achieve object / bounding box detections on classes which they were trained on. YOLO was originally made
 for real time applications, however for the scope of our project we will focus strictly on single frame performance and testing. We have included a snippet of output from running inference of a YOLOv8m
 model we retrained as to provide an example of what the model is capable of doing. In this specific example the model found one plane with a confidence of 90%.
 
