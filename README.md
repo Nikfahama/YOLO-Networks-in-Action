@@ -323,7 +323,7 @@ Data preparation and metrics notebook can be found [here](data_prep_and_statisti
 
 # Training Summary  
 
-Now we have reached the model traning phase where we are to train the models we selected on our dataset of choice. Luckily for us, we wont have to write the model from scratch as ultralytics
+Now we have reached the model training phase where we are to train the models we selected on our dataset of choice. Luckily for us, we wont have to write the model from scratch as ultralytics
 provides an elegant suite for us to use if we wish to retrain their YOLO models.  
 To get started we simply run these commands:  
 ```bash
