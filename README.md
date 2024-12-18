@@ -239,7 +239,7 @@ The main differences between YOLOv5 and YOLOv8 boil down to the use of a concept
   
   
 From the architectural & technical summaries above we can see that there are major differences between the genereations and variants of the models. As such we decided to take samples
-from two of the most popular gnerations of YOLO (v5 and v8) as well as two of the lighter variants (N and M) while placing an emphasis that we take at least some spacing between the variants
+from two of the most popular generations of YOLO (v5 and v8) as well as two of the lighter variants (N and M) while placing an emphasis that we take at least some spacing between the variants
 as to avoid sampling ones which might be too close to see dramatic results (such as N and S).
 
 We would also like to re-iterate that we were working under time and hardware constraints. Specifically when it comes to hardware all of the training that took place was done with a 
